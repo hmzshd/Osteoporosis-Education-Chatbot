@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osteoporosis Education Chatbot</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <script>
+    var remainingPrompts = {{ LIST_QUESTIONS[3:] | tojson }};
+    </script>
+    <script src="static/js/form.js"></script>
+    </script>
+</head>
+<body>
+    <header>
+        <h2>Osteoporosis Education Chatbot</h2>
+    </header>
+    <div class="chat-container">
+        {% for chat_entry in chatlog %}
+            <div class="chat-entry {{ chat_entry.role }}">
+                <span class="content">{{ chat_entry.content }}</span>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div id="sample-questions">
+        {% for question in LIST_QUESTIONS[:3] %}
+            <button type="button" onclick="sendPromptAndRemoveButton(this, '{{ question }}')">{{ question }}</button>
+        {% endfor %}
+    </div>
+
+    <form action="/generate" method="post" onsubmit="return sendPrompt(this.prompt.value)">
+        <textarea name="prompt" placeholder="Enter your question here"></textarea>
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>

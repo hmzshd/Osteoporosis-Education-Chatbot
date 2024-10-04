@@ -1,0 +1,12 @@
+__pycache__/
+tests/__pycache__/
+openai-env/
+datasets/
+
+# API key containing file
+config.py
+
+# Dissertation relevant files
+eval.py
+sources.txt
+diss_citations.txt

@@ -1,0 +1,2 @@
+# User manual 
+This project is a straightforward chatbot which uses a fine tuned OpenAI 3.5 GPT turbo model using AJAX to dynamically update the page without refreshing. Build the software and open the localhost link provided in terminal. The UI is relatively straightforward as there is a textbox to send custom queries and then there are sample queries pre-programmed in the form of buttons. Conversation history gets erased on exiting the program.
